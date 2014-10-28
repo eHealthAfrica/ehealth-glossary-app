@@ -44,9 +44,9 @@
           </thead>
           <tbody>
             <tr ng-repeat="term in terms | filter:query">
-              <td>{{term.name}}</td>
-              <td ng-bind-html="term.explanation | linkify | rawHtml"></td>
-              <td ng-bind-html="term.description | linkify | rawHtml"></td>
+              <td ng-bind-html="term.name | highlight:query"></td>
+              <td ng-bind-html="term.explanation | linkify | highlight:query"></td>
+              <td ng-bind-html="term.description | linkify | highlight:query"></td>
             </tr>
           </tbody>
         </table>

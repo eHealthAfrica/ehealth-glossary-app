@@ -12,3 +12,13 @@
 .ng-hide:after{
   content: "Loading";
 }
+
+.highlighted {
+  background-color: rgba(255, 255, 100, 0.5);
+  padding: 3px 4px;
+  margin: -3px -4px;
+}
+
+tr td:first-child{
+  font-weight: bold;
+}
