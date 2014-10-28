@@ -1,3 +1,15 @@
+.header{
+  margin: 1.5em 0;
+}
+
+.header h3{
+  display: inline;
+}
+
+.header .version{
+  color: #CECECE;
+}
+
 .main{
   min-height: 200px;
 }

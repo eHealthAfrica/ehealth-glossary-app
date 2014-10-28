@@ -19,14 +19,18 @@ module.exports = function (grunt) {
   // Configurable paths
   var config = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    pkg: grunt.file.readJSON('package.json')
   };
+
 
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
     config: config,
+
+    pkg: grunt.file.readJSON('package.json'),
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -359,7 +363,16 @@ module.exports = function (grunt) {
         ]
       }
     },
-
+    replace: {
+      version: {
+        src: ['app/index.html'],
+        overwrite: true,
+        replacements: [{
+          from: '@@VERSION@@',
+          to: "<%= pkg.version %>"
+        }]
+      }
+    },
     'gh-pages': {
       options: {
         base: 'dist'
@@ -385,6 +398,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
+      'replace',
       'connect:livereload',
       'watch'
     ]);
@@ -413,6 +427,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'replace',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
