@@ -26,5 +26,5 @@ grunt serve
 Show Off Bonus
 
 - [ ] Make it work offline with https://github.com/gr2m/appcache-nanny/
-- [ ] Add deploy task to Github Pages (grunt-gh-pages)
+- [x] Add deploy task to Github Pages (grunt-gh-pages)
 - [ ] Build native apps with node-webkit
