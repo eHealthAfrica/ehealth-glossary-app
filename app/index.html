@@ -28,6 +28,14 @@
       </div>
 
       <div class="main ng-hide" ng-show="terms" ng-controller="GlossaryCtrl">
+        <p>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+            <input class="form-control" ng-model="query" type="search" placeholder="Filter"/>
+          </div>
+        </p>
         <table class="table">
           <thead>
             <tr>
@@ -37,7 +45,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="term in terms">
+            <tr ng-repeat="term in terms | filter:query">
               <td>{{term.name}}</td>
               <td ng-bind-html="term.explanation | linkify | rawHtml"></td>
               <td ng-bind-html="term.description | linkify | rawHtml"></td>
