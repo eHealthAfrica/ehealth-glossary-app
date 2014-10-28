@@ -2,22 +2,46 @@
 
 /* global angular */
 
-var glossaryApp = angular.module('glossaryApp', []);
+var glossaryApp = angular.module('glossaryApp', ['ngStorage']);
 
-glossaryApp.controller('GlossaryCtrl', function($scope, $http){
+glossaryApp.service('glossaryData', function ($http, $q, $localStorage) {
 
-  $http.jsonp('https://script.google.com/macros/s/AKfycbxTSor3m5TaU1dYEpoltOsFwatsr64Ap1YLLL-qzhvw_TKGyyJc/exec?callback=JSON_CALLBACK')
-  .success(function (results){
-    $scope.terms = results.map(function(row){
-      return {
-        name: row[0],
-        explanation: row[1],
-        description: row[2]
-      };
-    });
-  }).error(function(err){
-    console.log('oops', err);
+  var fresh = $http.jsonp('https://script.google.com/macros/s/AKfycbxTSor3m5TaU1dYEpoltOsFwatsr64Ap1YLLL-qzhvw_TKGyyJc/exec?callback=JSON_CALLBACK');
+
+  var promise;
+  if($localStorage.rawResponse){
+    promise = $q.when($localStorage.rawResponse);
+  } else {
+    promise = fresh;
+  }
+
+  fresh.then(function(response) {
+    $localStorage.rawResponse = response;
   });
+
+  return function () {
+    return promise.then(function (response) {
+      return response.data.map(function(row){
+        return {
+          name: row[0],
+          explanation: row[1],
+          description: row[2]
+        };
+      });
+    });
+  };
+
+});
+
+glossaryApp.controller('GlossaryCtrl', function($scope, $http, glossaryData){
+  glossaryData().then(
+    function (results){
+      $scope.terms = results;
+    }, function(err){
+      console.log('oops', err);
+    }
+  );
+
 });
 
 glossaryApp.filter('rawHtml', ['$sce', function($sce){
