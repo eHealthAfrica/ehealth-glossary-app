@@ -20,7 +20,7 @@ grunt serve
 
 - [x] Basic setup with static HTML / CSS / JS
 - [x] Make it an angular app
-- [ ] Add service to load data, cache it
+- [x] Add service to load data, cache it
 - [ ] Add search
 
 Show Off Bonus
