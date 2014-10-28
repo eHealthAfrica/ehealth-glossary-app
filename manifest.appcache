@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 1 - 2014-10-28T11:38:51.036Z
+# rev 1 - 2014-10-28T11:41:17.943Z
 
 CACHE:
 scripts/49cfdb24.main.js
@@ -17,3 +17,4 @@ NETWORK:
 https://script.googleusercontent.com
 https://script.google.com
 /appcache-loader.html
+/ehealth-glossary-app/appcache-loader.html
