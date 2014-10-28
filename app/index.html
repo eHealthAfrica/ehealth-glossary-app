@@ -39,8 +39,8 @@
           <tbody>
             <tr ng-repeat="term in terms">
               <td>{{term.name}}</td>
-              <td ng-bind-html="term.explanation | rawHtml"></td>
-              <td ng-bind-html="term.description | rawHtml"></td>
+              <td ng-bind-html="term.explanation | linkify | rawHtml"></td>
+              <td ng-bind-html="term.description | linkify | rawHtml"></td>
             </tr>
           </tbody>
         </table>
