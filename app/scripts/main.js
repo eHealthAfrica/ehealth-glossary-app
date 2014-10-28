@@ -1,8 +1,13 @@
 'use strict';
 
-/* global angular */
+/* global angular, appCacheNanny*/
 
-var glossaryApp = angular.module('glossaryApp', ['ngStorage']);
+var glossaryApp = angular.module('glossaryApp', ['ngStorage', function () {
+  // If we're not in our dev environment, start appCache
+  if(window.location.port !== "9000"){
+    appCacheNanny.start();
+  }
+}]);
 
 glossaryApp.service('glossaryData', ['$http', '$q', '$localStorage', function ($http, $q, $localStorage) {
 

@@ -177,7 +177,7 @@ module.exports = function (grunt) {
             '<%= config.dist %>/scripts/{,*/}*.js',
             '<%= config.dist %>/styles/{,*/}*.css',
             '<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/styles/fonts/{,*/}*.*',
+            '<%= config.dist %>/fonts/{,*/}*.*',
             '<%= config.dist %>/*.{ico,png}'
           ]
         }
@@ -296,6 +296,12 @@ module.exports = function (grunt) {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
           dest: '<%= config.dist %>/.htaccess'
         }, {
+          src: 'bower_components/appcache-nanny/appcache-loader.html',
+          dest: '<%= config.dist %>/appcache-loader.html'
+        }, {
+          src: 'app/CNAME',
+          dest: '<%= config.dist %>/CNAME'
+        }, {
           expand: true,
           dot: true,
           cwd: 'bower_components/bootstrap/dist',
@@ -326,6 +332,34 @@ module.exports = function (grunt) {
         'svgmin'
       ]
     },
+
+    appcache: {
+      options: {
+        basePath: 'dist'
+      },
+      all: {
+        dest: 'dist/manifest.appcache',
+        cache: {
+          patterns: [
+           'dist/**/*.js',
+           'dist/**/*.css',
+           'dist/fonts/*.*'
+          ],
+          literals: '/'
+        },
+        network: [
+         'https://script.googleusercontent.com',
+         'https://script.google.com',
+         '/appcache-loader.html'
+        ],
+        fallback: [
+        ],
+        settings: [
+        'fast'
+        ]
+      }
+    },
+
     'gh-pages': {
       options: {
         base: 'dist'
@@ -388,7 +422,8 @@ module.exports = function (grunt) {
     'copy:dist',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'appcache'
   ]);
 
   grunt.registerTask('default', [
