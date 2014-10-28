@@ -55,7 +55,7 @@ glossaryApp.filter('rawHtml', ['$sce', function($sce){
   };
 }]);
 
-glossaryApp.filter('highlight', function($sce) {
+glossaryApp.filter('highlight', ['$sce', function($sce) {
   return function(text, phrase) {
     // Find all a tags
     var links = text.match(/<a.*(?=<\/a>)<\/a>/, 'gi');
@@ -84,7 +84,7 @@ glossaryApp.filter('highlight', function($sce) {
     }
     return $sce.trustAsHtml(text);
   };
-});
+}]);
 
 glossaryApp.filter('linkify', function(){
   return function (inputText) {
