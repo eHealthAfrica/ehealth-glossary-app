@@ -1,8 +1,8 @@
 CACHE MANIFEST
-# rev 1 - 2014-10-28T11:48:57.823Z
+# rev 1 - 2014-10-28T12:04:57.082Z
 
 CACHE:
-scripts/9a1eddfb.main.js
+scripts/49cfdb24.main.js
 scripts/cb7562c6.plugins.js
 scripts/dd887386.vendor.js
 styles/38f35119.main.css
@@ -17,4 +17,3 @@ NETWORK:
 https://script.googleusercontent.com
 https://script.google.com
 /appcache-loader.html
-/ehealth-glossary-app/appcache-loader.html
