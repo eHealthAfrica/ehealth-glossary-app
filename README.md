@@ -21,7 +21,7 @@ grunt serve
 - [x] Basic setup with static HTML / CSS / JS
 - [x] Make it an angular app
 - [x] Add service to load data, cache it
-- [ ] Add search
+- [x] Add search
 
 Show Off Bonus
 
