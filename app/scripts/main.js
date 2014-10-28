@@ -4,7 +4,7 @@
 
 var glossaryApp = angular.module('glossaryApp', ['ngStorage']);
 
-glossaryApp.service('glossaryData', function ($http, $q, $localStorage) {
+glossaryApp.service('glossaryData', ['$http', '$q', '$localStorage', function ($http, $q, $localStorage) {
 
   var fresh = $http.jsonp('https://script.google.com/macros/s/AKfycbxTSor3m5TaU1dYEpoltOsFwatsr64Ap1YLLL-qzhvw_TKGyyJc/exec?callback=JSON_CALLBACK');
 
@@ -31,9 +31,9 @@ glossaryApp.service('glossaryData', function ($http, $q, $localStorage) {
     });
   };
 
-});
+}]);
 
-glossaryApp.controller('GlossaryCtrl', function($scope, $http, glossaryData){
+glossaryApp.controller('GlossaryCtrl', ['$scope', '$http', 'glossaryData', function($scope, $http, glossaryData){
   glossaryData().then(
     function (results){
       $scope.terms = results;
@@ -42,7 +42,7 @@ glossaryApp.controller('GlossaryCtrl', function($scope, $http, glossaryData){
     }
   );
 
-});
+}]);
 
 glossaryApp.filter('rawHtml', ['$sce', function($sce){
   return function(val) {

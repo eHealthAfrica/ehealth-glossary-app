@@ -325,9 +325,14 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: '**/*'
     }
   });
-
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
