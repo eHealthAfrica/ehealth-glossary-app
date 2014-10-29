@@ -1,6 +1,8 @@
 {
   "name": "glossary-app",
+  "description": "simple offline-capable app for the eHealth glossary",
   "version": "2.3.0",
+  "homepage": "http://glossary.martynus.net/",
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
     "grunt": "^0.4.5",
@@ -17,6 +19,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-crx": "^0.3.3",
     "grunt-gh-pages": "^0.9.1",
     "grunt-mocha": "^0.4.10",
     "grunt-newer": "^0.7.0",

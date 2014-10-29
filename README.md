@@ -1,7 +1,7 @@
 eHealth Glossary App
 ====================
 
-> simple app for the eHealth glossary app
+> simple offline-capable app for the eHealth glossary
 
 This app is meant as a usefull angular learning project.
 

@@ -292,7 +292,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'manifest.json'
           ]
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',
@@ -352,7 +353,8 @@ module.exports = function (grunt) {
         network: [
          '/favicon.ico',
          '/apple-touch-icon.png',
-         '/appcache-loader.html',
+         '/manifest.json', // https://developer.chrome.com/multidevice/android/installtohomescreen
+         '/appcache-loader.html', // https://github.com/gr2m/appcache-nanny
          'https://script.googleusercontent.com',
          'https://script.google.com'
         ],
@@ -365,11 +367,17 @@ module.exports = function (grunt) {
     },
     replace: {
       version: {
-        src: ['app/index.html'],
+        src: [
+          'dist/index.html',
+          'dist/manifest.json'
+        ],
         overwrite: true,
         replacements: [{
           from: '@@VERSION@@',
           to: '<%= pkg.version %>'
+        }, {
+          from: '@@URL@@',
+          to: '<%= pkg.homepage %>'
         }]
       }
     },
@@ -378,6 +386,12 @@ module.exports = function (grunt) {
         base: 'dist'
       },
       src: '**/*'
+    },
+    crx: {
+      dist: {
+        'src': 'dist/',
+        'dest': 'dist/app.crx'
+      }
     }
   });
 
@@ -426,7 +440,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'replace',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -436,6 +449,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'rev',
     'usemin',
+    'replace',
     'htmlmin',
     'appcache'
   ]);
