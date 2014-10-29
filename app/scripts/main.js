@@ -1,8 +1,7 @@
-'use strict';
-
 /* global angular, appCacheNanny*/
-
 var glossaryApp = angular.module('glossaryApp', ['ngStorage', function () {
+  'use strict';
+
   // If we're not in our dev environment, start appCache
   if(window.location.port !== '9000'){
     appCacheNanny.start();
@@ -10,6 +9,7 @@ var glossaryApp = angular.module('glossaryApp', ['ngStorage', function () {
 }]);
 
 glossaryApp.service('glossaryData', ['$http', '$q', '$localStorage', function ($http, $q, $localStorage) {
+  'use strict';
 
   var fresh = $http.jsonp('https://script.google.com/macros/s/AKfycbxTSor3m5TaU1dYEpoltOsFwatsr64Ap1YLLL-qzhvw_TKGyyJc/exec?callback=JSON_CALLBACK');
 
@@ -39,6 +39,8 @@ glossaryApp.service('glossaryData', ['$http', '$q', '$localStorage', function ($
 }]);
 
 glossaryApp.controller('GlossaryCtrl', ['$scope', '$http', 'glossaryData', function($scope, $http, glossaryData){
+  'use strict';
+
   glossaryData().then(
     function (results){
       $scope.terms = results;
@@ -46,62 +48,4 @@ glossaryApp.controller('GlossaryCtrl', ['$scope', '$http', 'glossaryData', funct
       console.log('oops', err);
     }
   );
-
 }]);
-
-glossaryApp.filter('rawHtml', ['$sce', function($sce){
-  return function(val) {
-    return $sce.trustAsHtml(val);
-  };
-}]);
-
-glossaryApp.filter('highlight', ['$sce', function($sce) {
-  return function(text, phrase) {
-    // Find all a tags
-    var links = text.match(/<a.*(?=<\/a>)<\/a>/, 'gi');
-    // Replace each a tag with a token
-    if(links){
-      links.forEach(function(link, index){
-        text = text.replace(new RegExp('('+link+')', 'i'), '§§'+index);
-      });
-    }
-    // highlight the rest of the text
-    if (phrase) {
-      text = text.replace(new RegExp('('+phrase+')', 'gi'),
-        '<span class="highlighted">$1</span>');
-    }
-    if(links){
-      links.forEach(function(link, index){
-        // if the link contains the query phrase, wrap it in a highlight
-        // and swap with its token
-        if(phrase !== '' && link.match(new RegExp('('+phrase+')', 'gi'))){
-          text = text.replace('§§'+index, '<span class="highlighted">'+link+'</span>');
-        } else {
-          // If the link doesn't contain the query, just swap it with its token
-          text = text.replace('§§'+index, link);
-        }
-      });
-    }
-    return $sce.trustAsHtml(text);
-  };
-}]);
-
-glossaryApp.filter('linkify', function(){
-  return function (inputText) {
-    var replacedText, replacePattern1, replacePattern2, replacePattern3;
-
-    //URLs starting with http://, https://, or ftp://
-    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
-    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">link</a>');
-
-    //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
-    replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
-
-    //Change email addresses to mailto:: links.
-    replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
-    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
-
-    return replacedText;
-  };
-});
