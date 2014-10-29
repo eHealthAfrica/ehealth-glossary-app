@@ -1,3 +1,9 @@
+body{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 body > header {
   padding: 15px;
   background: #333;
@@ -14,6 +20,7 @@ body > header  .version{
 
 .main{
   min-height: 200px;
+  flex: 1;
 }
 
 .ng-hide .terms {
