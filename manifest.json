@@ -1,6 +1,6 @@
 {
   "name": "eHealth Glossary App Manifest",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "app": {
     "urls": [
       "http://glossary.martynus.net/"
