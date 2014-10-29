@@ -19,15 +19,18 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <div class="container">
-      <div class="header">
-        <h3 class="text-muted">eHealth Glossary App</h3>
-        <span class="version">2.1.1</span>
+    <header>
+      <div class="container">
+        <h3>
+          eHealth Glossary App
+          <small>2.1.1</small>
+        </h3>
       </div>
+    </header>
 
-      <div class="main ng-hide" ng-show="terms" ng-controller="GlossaryCtrl">
-        <p>
+    <div class="main container">
+      <div class="ng-hide" ng-show="terms" ng-controller="GlossaryCtrl">
+        <p class="query">
           <div class="input-group">
             <div class="input-group-addon">
               <span class="glyphicon glyphicon-search"></span>
@@ -35,29 +38,23 @@
             <input class="form-control" ng-model="query" type="search" placeholder="Filter"/>
           </div>
         </p>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Term</th>
-              <th>Explanation</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="term in terms | filter:query">
-              <td ng-bind-html="term.name | highlight:query"></td>
-              <td ng-bind-html="term.explanation | linkify | highlight:query"></td>
-              <td ng-bind-html="term.description | linkify | highlight:query"></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="terms">
+          <article ng-repeat="term in terms | filter:query">
+            <h4>
+              <strong ng-bind-html="term.name | highlight:query"></strong>
+              <small ng-bind-html="term.explanation | linkify | highlight:query"></small>
+            </h4>
+            <p ng-bind-html="term.description | linkify | highlight:query"></p>
+          </article>
+        </div>
       </div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Hoodie team</p>
-      </div>
-
     </div>
+
+    <footer>
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the <a href="http://hood.ie">Hoodie</a> team</p>
+      </div>
+    </footer>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -79,26 +76,26 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-        <!-- build:js(.) scripts/plugins.js -->
-        <script src="bower_components/bootstrap/js/affix.js"></script>
-        <script src="bower_components/bootstrap/js/alert.js"></script>
-        <script src="bower_components/bootstrap/js/dropdown.js"></script>
-        <script src="bower_components/bootstrap/js/tooltip.js"></script>
-        <script src="bower_components/bootstrap/js/modal.js"></script>
-        <script src="bower_components/bootstrap/js/transition.js"></script>
-        <script src="bower_components/bootstrap/js/button.js"></script>
-        <script src="bower_components/bootstrap/js/popover.js"></script>
-        <script src="bower_components/bootstrap/js/carousel.js"></script>
-        <script src="bower_components/bootstrap/js/scrollspy.js"></script>
-        <script src="bower_components/bootstrap/js/collapse.js"></script>
-        <script src="bower_components/bootstrap/js/tab.js"></script>
-        <!-- endbuild -->
+    <!-- build:js(.) scripts/plugins.js -->
+    <script src="bower_components/bootstrap/js/affix.js"></script>
+    <script src="bower_components/bootstrap/js/alert.js"></script>
+    <script src="bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="bower_components/bootstrap/js/tooltip.js"></script>
+    <script src="bower_components/bootstrap/js/modal.js"></script>
+    <script src="bower_components/bootstrap/js/transition.js"></script>
+    <script src="bower_components/bootstrap/js/button.js"></script>
+    <script src="bower_components/bootstrap/js/popover.js"></script>
+    <script src="bower_components/bootstrap/js/carousel.js"></script>
+    <script src="bower_components/bootstrap/js/scrollspy.js"></script>
+    <script src="bower_components/bootstrap/js/collapse.js"></script>
+    <script src="bower_components/bootstrap/js/tab.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/filters/highlight.js"></script>
-        <script src="scripts/filters/linkify.js"></script>
-        <script src="scripts/filters/rawHtml.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/filters/highlight.js"></script>
+    <script src="scripts/filters/linkify.js"></script>
+    <script src="scripts/filters/rawHtml.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

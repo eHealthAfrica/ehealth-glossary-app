@@ -1,12 +1,14 @@
-.header{
-  margin: 1.5em 0;
+body > header {
+  padding: 15px;
+  background: #333;
+  color: #fff;
 }
 
-.header h3{
+body > header  h3{
   display: inline;
 }
 
-.header .version{
+body > header  .version{
   color: #CECECE;
 }
 
@@ -14,13 +16,11 @@
   min-height: 200px;
 }
 
-.ng-hide table {
-  /* this is just another form of hiding an element */
+.ng-hide .terms {
   display:block!important;
   position:absolute;
   left:-9999px;
 }
-
 .ng-hide:after{
   content: "Loading";
 }
@@ -31,6 +31,16 @@
   margin: -3px -4px;
 }
 
-tr td:first-child{
-  font-weight: bold;
+.terms article {
+  padding: 8px 15px;
+  margin: 0 -15px;
+}
+.terms article:nth-child(odd) {
+  background: #f3f3f3;
+}
+
+body > footer {
+  padding: 30px 15px 15px;
+  background: #333;
+  color: #eee;
 }
