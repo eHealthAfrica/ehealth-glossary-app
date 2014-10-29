@@ -1,7 +1,7 @@
 eHealth Glossary App
 ====================
 
-> simple app for the eHealth glossary app
+> simple offline-capable app for the eHealth glossary
 
 This app is meant as a usefull angular learning project.
 
@@ -15,16 +15,11 @@ bower install
 grunt serve
 ```
 
-## The plan™
+## Install as nativ-ish app
 
-
-- [x] Basic setup with static HTML / CSS / JS
-- [x] Make it an angular app
-- [x] Add service to load data, cache it
-- [x] Add search
-
-Show Off Bonus
-
-- [ ] Make it work offline with https://github.com/gr2m/appcache-nanny/
-- [x] Add deploy task to Github Pages (grunt-gh-pages)
-- [ ] Build native apps with node-webkit
+- Windows & Mac:  
+  https://github.com/zoepage/ehealth-glossary-app/releases/tag/2.0.0
+- Android/Chrome:  
+  "Add to home screen"
+- iOS/Safari:  
+  "Add to home screen"
