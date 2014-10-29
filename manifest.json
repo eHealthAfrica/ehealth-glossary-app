@@ -1,9 +1,9 @@
 {
   "name": "eHealth Glossary App Manifest",
-  "version": "@@VERSION@@",
+  "version": "2.3.0",
   "app": {
     "urls": [
-      "@@URL@@"
+      "http://glossary.martynus.net/"
     ],
     "launch": {
       "web_url": "http://mail.google.com/mail/"
