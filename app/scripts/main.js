@@ -5,6 +5,9 @@ var glossaryApp = angular.module('glossaryApp', ['ngStorage', function () {
   // If we're not in our dev environment, start appCache
   if(window.location.port !== '9000'){
     appCacheNanny.start();
+    appCacheNanny.on('updateready', function() {
+      location.reload(true);
+    });
   }
 }]);
 
