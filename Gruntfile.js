@@ -74,8 +74,7 @@ module.exports = function (grunt) {
         port: 9000,
         open: true,
         livereload: 35729,
-        // Change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       livereload: {
         options: {
@@ -181,8 +180,7 @@ module.exports = function (grunt) {
             '<%= config.dist %>/scripts/{,*/}*.js',
             '<%= config.dist %>/styles/{,*/}*.css',
             '<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/fonts/{,*/}*.*',
-            '<%= config.dist %>/*.{ico,png}'
+            '<%= config.dist %>/fonts/{,*/}*.*'
           ]
         }
       }
@@ -352,9 +350,11 @@ module.exports = function (grunt) {
           literals: '/'
         },
         network: [
+         '/favicon.ico',
+         '/apple-touch-icon.png',
+         '/appcache-loader.html',
          'https://script.googleusercontent.com',
-         'https://script.google.com',
-         '/appcache-loader.html'
+         'https://script.google.com'
         ],
         fallback: [
         ],
@@ -398,7 +398,6 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
-      'replace',
       'connect:livereload',
       'watch'
     ]);
