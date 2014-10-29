@@ -369,7 +369,7 @@ module.exports = function (grunt) {
         overwrite: true,
         replacements: [{
           from: '@@VERSION@@',
-          to: "<%= pkg.version %>"
+          to: '<%= pkg.version %>'
         }]
       }
     },
