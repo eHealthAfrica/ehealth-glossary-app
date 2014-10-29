@@ -1,0 +1,23 @@
+{
+  "name": "eHealth Glossary App Manifest",
+  "version": "@@VERSION@@",
+  "app": {
+    "urls": [
+      "@@URL@@"
+    ],
+    "launch": {
+      "web_url": "http://mail.google.com/mail/"
+    }
+  },
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "offline_enabled": true
+}
