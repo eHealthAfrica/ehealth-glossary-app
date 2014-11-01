@@ -359,6 +359,7 @@ module.exports = function (grunt) {
          'https://script.google.com'
         ],
         fallback: [
+          '/ /'
         ],
         settings: [
         'fast'
