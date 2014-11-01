@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 1 - 2014-11-01T17:53:33.740Z
+# rev 1 - 2014-11-01T17:55:09.467Z
 
 CACHE:
 scripts/c1ea2250.main.js
@@ -14,7 +14,12 @@ fonts/e56f39cb.glyphicons-halflings-regular.eot
 /
 
 NETWORK:
-*
+/favicon.ico
+/apple-touch-icon.png
+/manifest.json
+/appcache-loader.html
+https://script.googleusercontent.com
+https://script.google.com
 
 FALLBACK:
 / /
