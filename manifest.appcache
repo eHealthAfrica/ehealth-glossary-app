@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev 1 - 2014-11-01T17:48:44.423Z
+# rev 1 - 2014-11-01T17:53:33.740Z
 
 CACHE:
 scripts/c1ea2250.main.js
@@ -15,3 +15,6 @@ fonts/e56f39cb.glyphicons-halflings-regular.eot
 
 NETWORK:
 *
+
+FALLBACK:
+/ /
