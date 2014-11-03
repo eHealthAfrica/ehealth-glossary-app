@@ -1,6 +1,6 @@
 {
   "name": "glossary-app",
-  "version": "2.6.2",
+  "version": "3.0.0",
   "description": "simple offline-capable app for the eHealth glossary",
   "homepage": "http://glossary.martynus.net/",
   "devDependencies": {
