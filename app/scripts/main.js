@@ -14,7 +14,7 @@ var glossaryApp = angular.module('glossaryApp', ['ngStorage', function () {
 glossaryApp.service('glossaryData', ['$http', '$q', '$localStorage', function ($http, $q, $localStorage) {
   'use strict';
 
-  var fresh = $http.jsonp('https://script.google.com/macros/s/AKfycbxTSor3m5TaU1dYEpoltOsFwatsr64Ap1YLLL-qzhvw_TKGyyJc/exec?callback=JSON_CALLBACK');
+  var fresh = $http.jsonp('https://script.google.com/macros/s/AKfycbxoNbcYsh_4Eg7ZyoaVUPrQgyOeMpa_iKi_dtWKgYVH6ANctNPS/exec?callback=JSON_CALLBACK');
 
   var promise;
   if($localStorage.rawResponse){
