@@ -1,5 +1,6 @@
 /* global glossaryApp */
-glossaryApp.filter('highlight', ['$sce', function($sce) {
+angular.module('glossaryApp')
+  .filter('highlight', ['$sce', function($sce) {
   'use strict';
 
   return function(text, phrase) {

@@ -1,5 +1,6 @@
 /* global glossaryApp */
-glossaryApp.filter('rawHtml', ['$sce', function($sce){
+angular.module('glossaryApp')
+  .filter('rawHtml', ['$sce', function($sce){
   'use strict';
 
   return function(val) {

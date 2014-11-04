@@ -1,5 +1,6 @@
 /* global glossaryApp */
-glossaryApp.filter('linkify', function(){
+angular.module('glossaryApp')
+  .filter('linkify', function(){
   'use strict';
 
   return function (inputText) {
