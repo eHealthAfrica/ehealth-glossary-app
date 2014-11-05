@@ -15,7 +15,7 @@
       "sizes": "96x96",
       "type": "image/png",
       "density": "2.0"
-    },
+    }
   ],
   "start_url": "./",
   "display": "standalone",
