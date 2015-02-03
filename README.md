@@ -8,7 +8,7 @@ This app is meant as a usefull angular learning project.
 ## Setup
 
 ```
-git clone git@github.com:eHealthAfrica/ehealth-glossary-app/.git
+git clone git@github.com:eHealthAfrica/ehealth-glossary-app.git
 cd ehealth-glossary-app
 npm install
 bower install
