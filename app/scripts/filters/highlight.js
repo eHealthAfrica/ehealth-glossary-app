@@ -1,4 +1,3 @@
-/* global glossaryApp */
 angular.module('glossaryApp')
   .filter('highlight', ['$sce', function($sce) {
   'use strict';

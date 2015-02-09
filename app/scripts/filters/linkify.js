@@ -1,4 +1,3 @@
-/* global glossaryApp */
 angular.module('glossaryApp')
   .filter('linkify', function(){
   'use strict';
