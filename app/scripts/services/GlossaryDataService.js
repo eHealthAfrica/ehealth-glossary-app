@@ -2,7 +2,7 @@ angular.module('glossaryApp')
   .service('glossaryData', ['$http', '$q', '$localStorage', function ($http, $q, $localStorage) {
     'use strict';
 
-    var SOURCE = 'https://script.google.com/macros/s/AKfycbxoNbcYsh_4Eg7ZyoaVUPrQgyOeMpa_iKi_dtWKgYVH6ANctNPS/exec?callback=JSON_CALLBACK';
+    var SOURCE_URL = 'https://script.google.com/macros/s/AKfycbxoNbcYsh_4Eg7ZyoaVUPrQgyOeMpa_iKi_dtWKgYVH6ANctNPS/exec?callback=JSON_CALLBACK';
     var fresh = $http.jsonp(SOURCE_URL);
 
     var promise;
@@ -22,8 +22,9 @@ angular.module('glossaryApp')
           return {
             name: row[0],
             explanation: row[1],
-            description: row[2],
-            synonyms: row[3]
+            type: row[2],
+            description: row[3],
+            synonyms: row[4]
           };
         });
       });
