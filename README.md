@@ -5,6 +5,8 @@ eHealth Glossary App
 
 This app is meant as a usefull angular learning project.
 
+It reads items added to https://docs.google.com/spreadsheets/d/1Sy1oaROu40llCVUB_Dif9y3qjrrfoVP2eqrkrS7F4OI/edit#gid=0
+
 ## Setup
 
 ```
